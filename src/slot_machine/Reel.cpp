@@ -1,5 +1,5 @@
 #include <sstream>
-#include "Reel.h"
+#include "reel.h"
 
 Reel::Reel(){
     offset = 0;

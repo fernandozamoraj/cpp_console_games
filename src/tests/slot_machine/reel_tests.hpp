@@ -3,7 +3,7 @@
 #include <string>
 #include <iostream>
 #include <vector>
-#include "../../slot_machine/Reel.h"
+#include "../../slot_machine/reel.h"
 #include "../../include/tester.h"
 
 using namespace std;

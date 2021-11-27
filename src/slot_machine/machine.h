@@ -1,7 +1,7 @@
 #ifndef SLOTMACHINE_MACHINE_H
 #define SLOTMACHINE_MACHINE_H
 #include <string>
-#include "Reel.h"
+#include "reel.h"
 
 using namespace std;
 
