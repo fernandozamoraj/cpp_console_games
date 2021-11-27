@@ -36,9 +36,6 @@ Reel Reel::operator=(const Reel &other){
 string Reel::operator[](int index) const{
     int actualIndex = index;
 
-    if(index + 1 > symbols.size() ){
-        return "WTF!";
-    }
     return symbols[(index+offset)%symbols.size()];
 }
 
@@ -56,7 +53,6 @@ void Reel::parse(const char *symbolString){
 int Reel::size() const{
     return symbols.size();
 }
-
 
 void Reel::spin(){
     offset = rand()%symbols.size();

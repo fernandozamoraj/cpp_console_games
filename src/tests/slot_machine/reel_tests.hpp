@@ -46,13 +46,10 @@ public:
     }
 
     void create_reel_test(){
-
         assert_equal("7", reel[0], "create reel [0]l");
         assert_equal(" ", reel[1], "create reel [1]");
         assert_equal("3x", reel[20], "create reel [20]");
         assert_equal(22, reel.size(), "create reel reel.size()");
-        
-        std::cout << "ran tests" << endl;
     }
 
     void when_spun_sets_offset(){
@@ -68,7 +65,8 @@ public:
         int offset2 = reel.getOffset();
         assert_true(offset1 != offset2, "offset1 != offset2");
         assert_equal(reel[0], symbols[offset2], "offset check");
-        cout << "offset2 " << offset2 << endl;
+        assert_equal(reel[symbols.size()], symbols[offset2], "index greater than last index wraps around");
+
     }
 
     //DON'T Forget to add your tests to the run function
@@ -79,8 +77,6 @@ public:
         when_spun_offset_is_correct();
 
         string results = getResults();
-
-        cout << "results: " << endl;
         
         cout << results;
     }

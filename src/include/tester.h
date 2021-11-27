@@ -14,8 +14,6 @@
 #include<vector>
 #include<sstream>
 
-
-
 using namespace std;
 
 template <typename T>
@@ -45,6 +43,19 @@ void _assertTrue(bool condition, string testName, string category, vector<string
         }
 }
 
+void _assertFalse(bool condition, string testName, string category, vector<string> &passedCollection, vector<string> &failedCollection){
+        if(!condition){
+            stringstream ss;
+            ss << category << ":" << testName << " Test Passed";
+            passedCollection.push_back(ss.str());
+        }
+        else{
+            stringstream ss;
+            ss << category << ":" << testName << " Test Failed expected " << !condition << " but was " << condition;
+            failedCollection.push_back(ss.str());
+        }
+}
+
 class Tester{
 
 private:
@@ -61,7 +72,17 @@ public:
         _assertEqual(expected, actual, testName, category, passedTests, failedTests);
     }
 
+    void assert_equal(char expected, char actual, string testName){
+        _assertEqual(expected, actual, testName, category, passedTests, failedTests);
+    }    void assert_equal(int expected, int actual, string testName){
+        _assertEqual(expected, actual, testName, category, passedTests, failedTests);
+    }
+
     void assert_equal(float expected, float actual, string testName){
+        _assertEqual(expected, actual, testName, category, passedTests, failedTests);
+    }
+
+    void assert_equal(double expected, double actual, string testName){
         _assertEqual(expected, actual, testName, category, passedTests, failedTests);
     }
 
@@ -71,6 +92,10 @@ public:
 
     void assert_true(bool condition, string testName){
         _assertTrue(condition, testName, category, passedTests, failedTests);
+    }
+
+    void assert_false(bool condition, string testName){
+        _assertFalse(condition, testName, category, passedTests, failedTests);
     }
 
     string getResults(){
