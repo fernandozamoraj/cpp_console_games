@@ -71,6 +71,7 @@ public:
         cout << "offset2 " << offset2 << endl;
     }
 
+    //DON'T Forget to add your tests to the run function
     void run(){
 
         create_reel_test();
