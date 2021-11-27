@@ -22,7 +22,7 @@ public:
 
     void machine_has_symbols_after_spin(){
         machine.spin();
-        assert_true(machine.getReel(0,0) != machine.getReel(1,0), "reels are different after spin");
+        assert_true(machine.getReel(0,0) != machine.getReel(1,0) && machine.getReel(0,0) != "7", "reels are different after spin");
     }
 
 
