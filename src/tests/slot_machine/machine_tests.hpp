@@ -17,7 +17,7 @@ public:
     }
 
     void create_machine(){
-        assert_equal("7", machine.getReel(0, 0), "getReel(0)");
+        assert_equal("7", machine.getReel(0, 0), "machine.getReel(0,0)");
     }
 
     void machine_has_symbols_after_spin(){
