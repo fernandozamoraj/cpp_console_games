@@ -87,6 +87,18 @@ public:
         return ss.str();
     }
 
+    /*
+       Override this function to run your tests and produce the results
+       Example:
+        //This would be in your implemenation of Tester 
+        void run(){
+
+          do_test1();
+          do_test2();
+          do_test3();
+          cout << getResults();
+        }
+    */
     virtual void run(){};
 
 };
