@@ -3,6 +3,7 @@
 #include<vector>
 #include "../../include/tester.h"
 #include "reel_tests.hpp"
+#include "machine_tests.hpp"
 
 using namespace std;
 
@@ -17,8 +18,11 @@ int main(){
 
     vector<Tester*> tests;
 
-    ReelTests realTests;
-    tests.push_back(&realTests);
+    ReelTests reelTests;
+    tests.push_back(&reelTests);
+
+    MachineTests machineTests;
+    tests.push_back(&machineTests);
 
     runTests(tests);
     

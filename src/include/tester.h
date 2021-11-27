@@ -74,9 +74,7 @@ public:
 
     void assert_equal(char expected, char actual, string testName){
         _assertEqual(expected, actual, testName, category, passedTests, failedTests);
-    }    void assert_equal(int expected, int actual, string testName){
-        _assertEqual(expected, actual, testName, category, passedTests, failedTests);
-    }
+    }    
 
     void assert_equal(float expected, float actual, string testName){
         _assertEqual(expected, actual, testName, category, passedTests, failedTests);
@@ -101,6 +99,7 @@ public:
     string getResults(){
         stringstream ss;
 
+        ss << "Category: " << category << endl; 
         ss << passedTests.size() << " Tests passed" << endl;
         ss << failedTests.size() << " Tests failed" << endl;
         ss << "--------------------------------------------" << endl;
