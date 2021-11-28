@@ -68,16 +68,16 @@ public:
 
     double collectWin(double amount){
        totalWins += amount;
+       
        stringstream ss;
-
        ss << "You won " << amount;
        ledger.push_back(ss.str());
     }
 
     double addMoney(double amount){
         totalAdds += amount;
-        stringstream ss;
 
+        stringstream ss;
         ss << "You added " << amount << " New Balance " << getBalance();
         ledger.push_back(ss.str());
     }

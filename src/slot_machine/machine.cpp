@@ -2,9 +2,9 @@
 
 Machine::Machine(){
    
-   Reel *reel1 = new Reel("7, ,@, ,n,@, ,@,#,$, ,^,&, ,*, ,0, ,2x, ,3x, ");
-   Reel *reel2 = new Reel("@, ,3x, ,$, , ,^, ,@,&, ,2x,*,#, 1x, ,0, 7, n");
-   Reel *reel3 = new Reel("@, ,@, ,$,n, ,#, ,^,2x, ,3x, ,0,7, ,&, , *, n");
+   Reel *reel1 = new Reel("7, ,@, ,n,@, ,$,#, , ,^,&, ,*, ,0, ,2x, ,3x,$");
+   Reel *reel2 = new Reel("@,7,3x, ,$, ,0,^, ,*,&, ,2x,*,#,*, ,0,7,n,*,#");
+   Reel *reel3 = new Reel("@, ,@, ,$,n, ,#, ,^,2x, ,3x, ,0,7, ,&, ,*,n,^");
 
    reels.push_back(reel1);
    reels.push_back(reel2);
@@ -44,7 +44,7 @@ SpinData Machine::spin(){
 
     data.row3[0] = (*reels[0])[2];
     data.row3[1] = (*reels[1])[2];
-    data.row3[2] = (*reels[1])[2];
+    data.row3[2] = (*reels[2])[2];
     
     return data;
 }
