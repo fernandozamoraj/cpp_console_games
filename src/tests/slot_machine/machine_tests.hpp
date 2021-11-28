@@ -27,13 +27,9 @@ public:
 
 
     void run(){
-
         create_machine();
         machine_has_symbols_after_spin();
-
-        string results = getResults();
-        
-        cout << results;
+        cout << getResults();
     }
 };
 

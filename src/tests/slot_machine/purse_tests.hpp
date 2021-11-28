@@ -51,6 +51,27 @@ public:
         assert_equal(0.0, betAmount, "does not place bet when balance is less than bet amount"); 
     }
 
+    void purse_copy_constructor_works(){
+        purse.clear();
+        purse.addMoney(10.0);
+        purse.bet(3.0);
+        purse.collectWin(10);
+        Purse otherPurse = purse;
+        Purse otherPurseToo = Purse(otherPurse);
+        assert_equal(17.0, otherPurse.getBalance(), "assignment worked because otherPurse copied over");
+        assert_equal(17.0, otherPurseToo.getBalance(), "copy constructor worked because otherPurse copied over");        
+    }
+
+    void dump_purse_ledger(){
+        purse.clear();
+        purse.addMoney(10);
+        purse.bet(3);
+        purse.collectWin(3);
+        string ledgerDump = purse.dumpPurseLedger();
+        //This can be flaky since it dependes on how many actions were take on the purse
+        assert_true(ledgerDump.length() > 100, "Ledger has data in it");
+    }
+
     //DON'T Forget to add your tests to the run function
     void run(){
 
@@ -59,10 +80,10 @@ public:
         has_correct_balance_after_win();
         does_not_place_bet_when_balance_is_0();
         does_not_place_bet_when_balance_is_less_than_bet();
+        purse_copy_constructor_works();
+        dump_purse_ledger();
 
-        string results = getResults();
-        
-        cout << results;
+        cout << getResults();
     }
 };
 

@@ -156,11 +156,10 @@ public:
     }
 
     void pays_3x_anywhere_combined_with_payline(){
-
+        assert_true(false, "Need a test for this");
     }
 
     void run(){
-
         pays_on_symbol_at();
         pays_on_symbol_caret();
         pays_on_symbol_dollar();
@@ -175,10 +174,9 @@ public:
         pays_triple2x_symbol_dollar();
         pays_triple3x_symbol_dollar();
         pays_combined_2x_and_3x();
-
-        string results = getResults();
+        pays_3x_anywhere_combined_with_payline();
         
-        cout << results;
+        cout << getResults();
     }
 };
 

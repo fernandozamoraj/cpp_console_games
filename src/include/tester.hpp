@@ -107,6 +107,7 @@ public:
     string getResults(){
         stringstream ss;
 
+        ss << "--------------------------------------------" << endl;
         ss << "Category: " << category << endl; 
         ss << passedTests.size() << " Tests passed" << endl;
         ss << failedTests.size() << " Tests failed" << endl;

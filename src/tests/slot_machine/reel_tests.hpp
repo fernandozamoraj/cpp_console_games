@@ -76,9 +76,7 @@ public:
         when_spun_sets_offset();
         when_spun_offset_is_correct();
 
-        string results = getResults();
-        
-        cout << results;
+        cout << getResults();
     }
 
 };
