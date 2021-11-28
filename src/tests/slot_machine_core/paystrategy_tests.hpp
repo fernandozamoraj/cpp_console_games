@@ -4,7 +4,7 @@
 #include <iostream>
 #include <vector>
 #include "../../include/tester.hpp"
-#include "../../slot_machine/paystrategy.h"
+#include "../../slot_machine_core/paystrategy.h"
 
 using namespace std;
 

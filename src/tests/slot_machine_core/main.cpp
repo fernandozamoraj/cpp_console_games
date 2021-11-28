@@ -6,6 +6,7 @@
 #include "machine_tests.hpp"
 #include "paystrategy_tests.hpp"
 #include "purse_tests.hpp"
+#include "machine_interface_tests.hpp"
 
 using namespace std;
 
@@ -40,6 +41,9 @@ int main(){
 
     PurseTests purseTests;
     tests.push_back(&purseTests);
+
+    MachineInterfaceTests machineInterfaceTests;
+    tests.push_back(&machineInterfaceTests);
 
     runTests(tests);
     

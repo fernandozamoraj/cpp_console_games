@@ -3,8 +3,8 @@
 #include <string>
 #include <iostream>
 #include <vector>
-#include "../../slot_machine/machine.h"
-#include "../../slot_machine/spindata.hpp"
+#include "../../slot_machine_core/machine.h"
+#include "../../slot_machine_core/spindata.hpp"
 #include "../../include/tester.hpp"
 
 using namespace std;

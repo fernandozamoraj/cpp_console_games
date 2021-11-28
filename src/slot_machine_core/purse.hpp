@@ -13,11 +13,13 @@ private:
     double totalAdds;
     double totalBets;
     double totalWins;
+    double totalWithdrawals;
 public:
     Purse(){
        totalAdds = 0.0;
        totalBets = 0.0;
        totalWins = 0.0;
+       totalWithdrawals = 0.0;
     }
 
     Purse(const Purse &other){
@@ -43,7 +45,7 @@ public:
     }
 
     double getBalance() const{
-       return totalAdds - totalBets + totalWins;
+       return totalAdds - totalBets + totalWins - totalWithdrawals;
     }
 
     double bet(double amount){
@@ -82,6 +84,17 @@ public:
         ledger.push_back(ss.str());
     }
 
+    double cashOut(){
+        double amount = getBalance();
+
+        totalWithdrawals += amount;
+
+        stringstream ss;
+        ss << "You cashed out " << amount << " New Balance " << getBalance();
+
+        return amount;
+    }
+
     void clear(){
         stringstream ss;
         ss << "Ledger was cleared of  " << getBalance();
@@ -89,6 +102,7 @@ public:
         totalAdds = 0;
         totalBets = 0;
         totalWins = 0;
+        totalWithdrawals = 0;
 
         ledger.push_back(ss.str());
     }
@@ -99,6 +113,7 @@ public:
        ss << "Total Adds: " << totalAdds << endl;
        ss << "Total Bets: " << totalBets << endl;
        ss << "Total Wins: " << totalWins << endl;
+       ss << "Total Withdrawals: " << totalWithdrawals << endl;
        for(auto line: ledger){
            ss << line << endl;
        }
