@@ -6,8 +6,8 @@
 
 
 */
-#ifndef TESTER_H
-#define TESTER_H
+#ifndef TESTER_HPP
+#define TESTER_HPP
 
 #include<string>
 #include<iostream>
@@ -94,6 +94,14 @@ public:
 
     void assert_false(bool condition, string testName){
         _assertFalse(condition, testName, category, passedTests, failedTests);
+    }
+
+    int getTestsPassedCount(){
+        return passedTests.size();
+    }
+
+    int getTestsFailedCount(){
+        return failedTests.size();
     }
 
     string getResults(){

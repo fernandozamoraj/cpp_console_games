@@ -4,7 +4,7 @@
 #include <iostream>
 #include <vector>
 #include "../../slot_machine/reel.h"
-#include "../../include/tester.h"
+#include "../../include/tester.hpp"
 
 using namespace std;
 
