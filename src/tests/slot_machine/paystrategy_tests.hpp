@@ -12,6 +12,9 @@ class PayStrategyTests  : public Tester{
 
 private:
     PayStrategy payStrategy;
+    string row1[3];
+    string row2[3];
+    string row3[3];
 public:
    /*   
 /*
@@ -37,77 +40,123 @@ public:
         setCategory("PayStrategy Tests");
     }
 
+    void prepareRowPayline(string symbol1, string symbol2, string symbol3){
+        row2[0] = symbol1;
+        row2[1] = symbol2;
+        row2[2] = symbol3;
+    }
+
     void pays_on_symbol_at(){
-        assert_equal(.25, payStrategy.payOut("@", "@", "@"), "@ @ @");
+        prepareRowPayline("@", "@", "@");
+        assert_equal(.25, payStrategy.payOut(row1, row2, row3), "@ @ @");
     }
 
     void pays_on_symbol_pound(){
-         assert_equal(.5, payStrategy.payOut("#", "#", "#"), "# # #");
+        prepareRowPayline("#", "#", "#");
+        assert_equal(.5, payStrategy.payOut(row1, row2, row3), "# # #");
     }
 
     void pays_on_symbol_n(){
-         assert_equal(1.0, payStrategy.payOut("n", "n", "n"), "n n n");
+        prepareRowPayline("n", "n", "n");
+        assert_equal(1.0, payStrategy.payOut(row1, row2, row3), "n n n");
     }
 
     void pays_on_symbol_caret(){
-         assert_equal(1.5, payStrategy.payOut("^", "^", "^"), "^ ^ ^");
+        prepareRowPayline("^", "^", "^");
+         assert_equal(1.5, payStrategy.payOut(row1, row2, row3), "^ ^ ^");
     }
 
     void pays_on_symbol_zero(){
-         assert_equal(4.0, payStrategy.payOut("0", "0", "0"), "0 0 0");
+        prepareRowPayline("0", "0", "0");
+        assert_equal(4.0, payStrategy.payOut(row1, row2, row3), "0 0 0");
     }
 
     void pays_on_symbol_star(){
-         assert_equal(10.0, payStrategy.payOut("*", "*", "*"), "* * *");
+        prepareRowPayline("*", "*", "*");
+        assert_equal(10.0, payStrategy.payOut(row1, row2, row3), "* * *");
     }
 
     void pays_on_symbol_dollar(){
-         assert_equal(20.0, payStrategy.payOut("$", "$", "$"), "$ $ $");
+        prepareRowPayline("$", "$", "$");
+        assert_equal(20.0, payStrategy.payOut(row1, row2, row3), "$ $ $");
     }
 
     void pays_2x_symbol_dollar(){
-         assert_equal(40.0, payStrategy.payOut("$", "$", "2x"), "$ $ 2x");
-         assert_equal(40.0, payStrategy.payOut("$", "2x", "$"), "$ 2x $");
-         assert_equal(40.0, payStrategy.payOut("2x", "$", "$"), "2x $ $");
+        prepareRowPayline("$", "$", "2x");
+         assert_equal(40.0, payStrategy.payOut(row1, row2, row3), "$ $ 2x");
+
+        prepareRowPayline("$", "2x", "$");
+        assert_equal(40.0, payStrategy.payOut(row1, row2, row3), "$ 2x $");
+
+        prepareRowPayline("$", "2x", "$");
+        assert_equal(40.0, payStrategy.payOut(row1, row2, row3), "2x $ $");
     }
 
     void pays_3x_symbol_dollar(){
-         assert_equal(60.0, payStrategy.payOut("$", "$", "3x"), "$ $ 2x");
-         assert_equal(60.0, payStrategy.payOut("$", "3x", "$"), "$ 2x $");
-         assert_equal(60.0, payStrategy.payOut("3x", "$", "$"), "2x $ $");
+        prepareRowPayline("$", "$", "3x");
+        assert_equal(60.0, payStrategy.payOut(row1, row2, row3), "$ $ 2x");
+
+        prepareRowPayline("$", "3x", "$");
+        assert_equal(60.0, payStrategy.payOut(row1, row2, row3), "$ 2x $");
+
+        prepareRowPayline("3x", "$", "$");
+        assert_equal(60.0, payStrategy.payOut(row1, row2, row3), "2x $ $");
     }
 
     void pays_double2x_symbol_dollar(){
-         assert_equal(80.0, payStrategy.payOut("2x", "2x", "$"), "2x 2x $");
-         assert_equal(80.0, payStrategy.payOut("2x", "$", "2x"), "2x $  2x");
-         assert_equal(80.0, payStrategy.payOut("$", "2x", "2x"), "$  2x 2x");;
+        prepareRowPayline("2x", "2x", "$");
+         assert_equal(80.0, payStrategy.payOut(row1, row2, row3), "2x 2x $");
+
+         prepareRowPayline("2x", "$", "2x");
+         assert_equal(80.0, payStrategy.payOut(row1, row2, row3), "2x $  2x");
+
+         prepareRowPayline("$", "2x", "2x");
+         assert_equal(80.0, payStrategy.payOut(row1, row2, row3), "$  2x 2x");;
     }
 
     void pays_double3x_symbol_dollar(){
-         assert_equal(180.0, payStrategy.payOut("$", "3x", "3x"), "$ 3x 3x");
-         assert_equal(180.0, payStrategy.payOut("3x", "$", "3x"), "3x $ 3x");
-         assert_equal(180.0, payStrategy.payOut("3x", "3x", "$"), "3x 3x $");
+        prepareRowPayline("$", "3x", "3x");
+        assert_equal(180.0, payStrategy.payOut(row1, row2, row3), "$ 3x 3x");
+
+        prepareRowPayline("3x", "$", "3x");
+        assert_equal(180.0, payStrategy.payOut(row1, row2, row3), "3x $ 3x");
+
+        prepareRowPayline("3x", "3x", "$");
+        assert_equal(180.0, payStrategy.payOut(row1, row2, row3), "3x 3x $");
     }
 
     void pays_triple2x_symbol_dollar(){
-         assert_equal(400.0, payStrategy.payOut("2x", "2x", "2x"), "2x 2x 2x");
+        prepareRowPayline("2x", "2x", "2x");
+        assert_equal(400.0, payStrategy.payOut(row1, row2, row3), "2x 2x 2x");
     }
 
     void pays_triple3x_symbol_dollar(){
-         assert_equal(2700.0, payStrategy.payOut("3x", "3x", "3x"), "3x 3x 3x");
+        prepareRowPayline("3x", "3x", "3x");
+        assert_equal(2700.0, payStrategy.payOut(row1, row2, row3), "3x 3x 3x");
     }
 
     void pays_combined_2x_and_3x(){
-        assert_equal(120.0, payStrategy.payOut("3x", "2x", "$"), "3x 2x $");
-        assert_equal(120.0, payStrategy.payOut("2x", "3x", "$"), "2x 3x $");
-        assert_equal(120.0, payStrategy.payOut("3x", "$", "2x"), "3x  $ 2x");
-        assert_equal(120.0, payStrategy.payOut("2x", "$", "3x"), "2x  $ 3x");
-        assert_equal(120.0, payStrategy.payOut("$", "3x", "2x"), " $ 3x 2x");
-        assert_equal(120.0, payStrategy.payOut("$", "2x", "3x"), " $ 2x 3x");
+        prepareRowPayline("3x", "2x", "$");
+        assert_equal(120.0, payStrategy.payOut(row1, row2, row3), "3x 2x $");
+
+        prepareRowPayline("2x", "3x", "$");
+        assert_equal(120.0, payStrategy.payOut(row1, row2, row3), "2x 3x $");
+
+        prepareRowPayline("3x", "$", "2x");
+        assert_equal(120.0, payStrategy.payOut(row1, row2, row3), "3x  $ 2x");
+
+        prepareRowPayline("2x", "$", "3x");
+        assert_equal(120.0, payStrategy.payOut(row1, row2, row3), "2x  $ 3x");
+
+        prepareRowPayline("$", "3x", "2x");
+        assert_equal(120.0, payStrategy.payOut(row1, row2, row3), " $ 3x 2x");
+
+        prepareRowPayline("$", "2x", "3x");
+        assert_equal(120.0, payStrategy.payOut(row1, row2, row3), " $ 2x 3x");
     }
 
     void pays_3x_anywhere_combined_with_payline(){
-        
+
     }
 
     void run(){

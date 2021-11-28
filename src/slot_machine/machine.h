@@ -2,6 +2,7 @@
 #define SLOTMACHINE_MACHINE_H
 #include <string>
 #include "reel.h"
+#include "spinData.hpp"
 
 using namespace std;
 
@@ -13,7 +14,7 @@ public:
     Machine();
     ~Machine();
     string getReel(int reel, int index) const;
-    void spin();
+    SpinData spin();
 };
 
 #endif // !SLOTMACHINE_CMAHINE_H

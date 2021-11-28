@@ -27,7 +27,7 @@ public:
      7, ,@, ,n,@, ,@,#,$, ,^,&, ,*, ,0, ,2x, ,3x, 
     */ 
     PayStrategy();
-    double payOut(string firstSymbol, string secondSymbol, string thirdSymbol) const;
+    double payOut(string row1[], string row2[], string row3[]) const;
     vector<string> getPayTables() const;
 };
 

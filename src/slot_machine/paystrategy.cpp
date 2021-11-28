@@ -115,9 +115,9 @@ PayStrategy::PayStrategy(){
     payMappings[" "] = 0;
 }
 
-double PayStrategy::payOut(string firstSymbol, string secondSymbol, string thirdSymbol) const
+double PayStrategy::payOut(string row1[], string row2[], string row3[]) const
 {
-   double payout = getPayout(firstSymbol, secondSymbol, thirdSymbol, payMappings);
+   double payout = getPayout(row2[0], row2[1], row2[2], payMappings);
 
    return payout;
 }

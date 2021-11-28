@@ -28,8 +28,23 @@ string Machine::getReel(int reelIndex, int index) const{
     return (*reel)[index];
 }
 
-void Machine::spin(){
+SpinData Machine::spin(){
     reels[0]->spin();
     reels[1]->spin();
     reels[2]->spin();
+
+    SpinData data;
+    data.row1[0] = (*reels[0])[0];
+    data.row1[1] = (*reels[1])[0];
+    data.row1[2] = (*reels[2])[0];
+
+    data.row2[0] = (*reels[0])[1];
+    data.row2[1] = (*reels[1])[1];
+    data.row2[2] = (*reels[2])[1];
+
+    data.row3[0] = (*reels[0])[2];
+    data.row3[1] = (*reels[1])[2];
+    data.row3[2] = (*reels[1])[2];
+    
+    return data;
 }
