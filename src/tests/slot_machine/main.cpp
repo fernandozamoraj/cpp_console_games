@@ -4,6 +4,7 @@
 #include "../../include/tester.h"
 #include "reel_tests.hpp"
 #include "machine_tests.hpp"
+#include "paystrategy_tests.hpp"
 
 using namespace std;
 
@@ -23,6 +24,9 @@ int main(){
 
     MachineTests machineTests;
     tests.push_back(&machineTests);
+
+    PayStrategyTests payStrategyTests;
+    tests.push_back(&payStrategyTests);
 
     runTests(tests);
     
